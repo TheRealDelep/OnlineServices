@@ -14,6 +14,6 @@ namespace UserServices.DataLayer.Entities
         public int Id { get; set; }
 
         public string name { get; set; }
-        public ICollection<SessionEF> Session { get; set; }
+        public ICollection<SessionEF> Sessions { get; set; }
     }
 }

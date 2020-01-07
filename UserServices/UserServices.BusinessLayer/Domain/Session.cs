@@ -10,11 +10,8 @@ namespace UserServices.BusinessLayer
         public Course Course { get; set; }
         //public Local Local { get; set; }
         public User Teacher{ get; set; }
-        public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
+        public List<DateTime> Dates { get; set; }
         public User Attendee { get; set; }
-
-        public List<Course> Courses { get; set; } = new List<Course>();
 
     }
 }

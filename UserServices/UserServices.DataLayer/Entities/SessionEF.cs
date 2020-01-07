@@ -16,8 +16,7 @@ namespace UserServices.DataLayer.Entities
         public CourseEF Course { get; set; }
         //public Local Local { get; set; }
         public UserEF Teacher { get; set; }
-        public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
+        public ICollection<DateTime> Dates { get; set; }
         public ICollection<UserSessionEF> UserSessions { get; set; }
     }
 }
