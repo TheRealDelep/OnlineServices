@@ -2,6 +2,7 @@
 using UserServices.Shared;
 using OnlineServices.Shared.Extensions;
 using System.Text.RegularExpressions;
+using System.Collections.Generic;
 
 namespace UserServices.BusinessLayer
 {
@@ -9,10 +10,10 @@ namespace UserServices.BusinessLayer
     {
         public int ID { get; set; }
         public string Name { get; set; }
-        public Role Role { get; set; }
+        public UserRole Role { get; set; }
         public string Company { get; set; }
         public string Email { get; set; }
-        public Session Session { get; set; }
+        public List<Session> Sessions { get; set; }
         public bool IsActivated { get; set; }
 
 

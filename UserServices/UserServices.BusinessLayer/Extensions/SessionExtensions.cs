@@ -10,12 +10,12 @@ namespace UserServices.BusinessLayer.Extensions
     {
         public static Session ToDomain(this SessionTO sessionTO)
         {
-            return new Session 
+            return new Session
             {
                 ID = sessionTO.ID,
-                Course = sessionTO.Course.ToDoamin(), 
-                Teacher = sessionTO.TeacherName.ToDomain(), 
-                Attendee = sessionTO.Attendee.ToDomain(),
+                Course = sessionTO.Course.ToDoamin(),
+                Teacher = sessionTO.TeacherName.ToDomain(),
+                Attendees = sessionTO.Attendees.Select(x => x.ToDomain()).ToList()
             };
         }
 
@@ -27,7 +27,7 @@ namespace UserServices.BusinessLayer.Extensions
                 Course = session.Course.ToTransferObject(),
                 //Local = session.Local
                 TeacherName  = session.Teacher.ToTransferObject(),
-                Attendee = session.Attendee.ToTransferObject(),
+                Attendees = session.Attendees.Select(x=> x.ToTransferObject()).ToList()
             };
         }
     }

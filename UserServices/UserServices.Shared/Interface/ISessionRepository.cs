@@ -6,8 +6,10 @@ using OnlineServices.Shared.DataAccessHelpers;
 
 namespace UserServices.Shared.Interface
 {
-    internal interface ISessionRepository : IRepositoryTemp<SessionTO, int>
+    internal interface ISessionRepository : OnlineServices.Shared.DataAccessHelpers.IRepository<SessionTO, int>
     {
-        List<UserTO> GetStudents(SessionTO session);
+        IEnumerable<UserTO> GetStudents(SessionTO session);
+
+        IEnumerable<DateTime> GetDates(SessionTO session);
     }
 }

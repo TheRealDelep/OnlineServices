@@ -11,7 +11,7 @@ namespace UserServices.BusinessLayer
         //public Local Local { get; set; }
         public User Teacher{ get; set; }
         public List<DateTime> Dates { get; set; }
-        public User Attendee { get; set; }
+        public List<User> Attendees { get; set; }
 
     }
 }

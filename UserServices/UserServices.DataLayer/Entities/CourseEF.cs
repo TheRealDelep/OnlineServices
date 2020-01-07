@@ -13,7 +13,7 @@ namespace UserServices.DataLayer.Entities
         [Key]
         public int Id { get; set; }
 
-        public string name { get; set; }
+        public string Name { get; set; }
         public ICollection<SessionEF> Sessions { get; set; }
     }
 }

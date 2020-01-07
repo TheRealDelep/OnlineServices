@@ -4,9 +4,9 @@ using UserServices.Shared.TransferObject;
 
 namespace UserServices.Shared.Interface
 {
-    internal interface IUserRepository : IRepositoryTemp<UserTO, int>
+    internal interface IUserRepository : OnlineServices.Shared.DataAccessHelpers.IRepository<UserTO, int>
     {
-        List<SessionTO> GetSessions(UserTO user);
+        IEnumerable<SessionTO> GetSessions(UserTO user);
 
         bool IsInSession(UserTO user, SessionTO session);
     }
