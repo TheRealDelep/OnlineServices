@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
+using Microsoft.Office.Interop.Excel;
 
 namespace UserServices.Shared.Interface
 {
@@ -11,6 +12,6 @@ namespace UserServices.Shared.Interface
 
         void DeleteUser();
 
-        void CreateFromExcel(FileStream excelFile);
+        void ReadExcel(Workbook excelFile);
     }
 }

@@ -1,69 +1,67 @@
-﻿using EvaluationServices.BusinessLayer.UseCases;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Moq;
-using OnlineServices.Shared.DataAccessHelpers;
-using OnlineServices.Shared.EvaluationServices.TransfertObjects;
-using System;
+﻿//using EvaluationServices.BusinessLayer.UseCases;
+//using Microsoft.VisualStudio.TestTools.UnitTesting;
+//using Moq;
+//using OnlineServices.Shared.DataAccessHelpers;
+//using OnlineServices.Shared.EvaluationServices.TransfertObjects;
+//using System;
 
-namespace EvaluationServices.BusinessLayerTests
-{
-    [TestClass]
-    public class AttendeeRole_GetForm
-    {
-        [TestMethod]
-        public void GetForm_Throws_FomrIDInexistant()
-        {
-            //Arrange
-            var moqRepo = new Mock<IRepository<FormTO, int>>();
-            moqRepo.Setup(x => x.GetById(It.IsAny<int>())).Returns(()=>default(FormTO));
-            var moqUserService = new Mock<IUserServiceTemp>();
-            moqUserService.Setup(x => x.IsExistentSession(It.IsAny<int>())).Returns(() =>true);
+//namespace EvaluationServices.BusinessLayerTests
+//{
+//    [TestClass]
+//    public class AttendeeRole_GetForm
+//    {
+//        [TestMethod]
+//        public void GetForm_Throws_FomrIDInexistant()
+//        {
+//            //Arrange
+//            var moqRepo = new Mock<IRepository<FormTO, int>>();
+//            moqRepo.Setup(x => x.GetById(It.IsAny<int>())).Returns(()=>default(FormTO));
+//            var moqUserService = new Mock<IUserServiceTemp>();
+//            moqUserService.Setup(x => x.IsExistentSession(It.IsAny<int>())).Returns(() =>true);
 
+//            var sut = new AttendeeRole(moqRepo.Object, moqUserService.Object);
+//            var SessionID = 1;
+//            var FormID = 999; //Forms inexistant
 
-            var sut = new AttendeeRole(moqRepo.Object, moqUserService.Object);
-            var SessionID = 1;
-            var FormID = 999; //Forms inexistant
-            
-            Assert.ThrowsException<Exception>(() => sut.GetForm(SessionID, FormID));
-        }
+//            Assert.ThrowsException<Exception>(() => sut.GetForm(SessionID, FormID));
+//        }
 
-        [TestMethod]
-        public void GetForm_Throws_SessionIDInexistant()
-        {
-            //Arrange
-            var moqRepo = new Mock<IRepository<FormTO, int>>();
-            moqRepo.Setup(x => x.GetById(It.IsAny<int>())).Returns(() => default(FormTO));
-            var moqUserService = new Mock<IUserServiceTemp>();
-            moqUserService.Setup(x => x.IsExistentSession(It.IsAny<int>())).Returns(() => false);
+//        [TestMethod]
+//        public void GetForm_Throws_SessionIDInexistant()
+//        {
+//            //Arrange
+//            var moqRepo = new Mock<IRepository<FormTO, int>>();
+//            moqRepo.Setup(x => x.GetById(It.IsAny<int>())).Returns(() => default(FormTO));
+//            var moqUserService = new Mock<IUserServiceTemp>();
+//            moqUserService.Setup(x => x.IsExistentSession(It.IsAny<int>())).Returns(() => false);
 
-            var sut = new AttendeeRole(moqRepo.Object, moqUserService.Object);
-            var SessionID = 999999999;//session inexistant
-            var FormID = 1; 
+//            var sut = new AttendeeRole(moqRepo.Object, moqUserService.Object);
+//            var SessionID = 999999999;//session inexistant
+//            var FormID = 1;
 
-            Assert.ThrowsException<Exception>(() => sut.GetForm(SessionID, FormID));
-        }
+//            Assert.ThrowsException<Exception>(() => sut.GetForm(SessionID, FormID));
+//        }
 
-        [TestMethod]
-        public void GetForm_ReturnForm_WhenValidParametersIsPRovided()
-        {
-            //Arrange
-            var SessionID = 1;
-            var FormID = 1; //Forms inexistant
+//        [TestMethod]
+//        public void GetForm_ReturnForm_WhenValidParametersIsPRovided()
+//        {
+//            //Arrange
+//            var SessionID = 1;
+//            var FormID = 1; //Forms inexistant
 
-            var moqRepo = new Mock<IRepository<FormTO, int>>();
-            moqRepo.Setup(x => x.GetById(It.IsAny<int>())).Returns(() => new FormTO { Id = FormID, SessionID = SessionID } );
-            var moqUserService = new Mock<IUserServiceTemp>();
-            moqUserService.Setup(x => x.IsExistentSession(It.IsAny<int>())).Returns(() => true);
+//            var moqRepo = new Mock<IRepository<FormTO, int>>();
+//            moqRepo.Setup(x => x.GetById(It.IsAny<int>())).Returns(() => new FormTO { Id = FormID, SessionID = SessionID } );
+//            var moqUserService = new Mock<IUserServiceTemp>();
+//            moqUserService.Setup(x => x.IsExistentSession(It.IsAny<int>())).Returns(() => true);
 
-            var sut = new AttendeeRole(moqRepo.Object, moqUserService.Object);
+//            var sut = new AttendeeRole(moqRepo.Object, moqUserService.Object);
 
+//            //ACT
+//            var FormToAssert = sut.GetForm(SessionID, FormID);
 
-            //ACT
-            var FormToAssert = sut.GetForm(SessionID, FormID);
-
-            //ASSERT
-            Assert.AreEqual(SessionID, FormToAssert.SessionID);
-            Assert.AreEqual(FormID, FormToAssert.Id);
-        }
-    }
-}
+//            //ASSERT
+//            Assert.AreEqual(SessionID, FormToAssert.SessionID);
+//            Assert.AreEqual(FormID, FormToAssert.Id);
+//        }
+//    }
+//}

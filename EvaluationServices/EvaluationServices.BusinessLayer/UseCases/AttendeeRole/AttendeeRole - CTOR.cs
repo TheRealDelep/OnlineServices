@@ -17,5 +17,10 @@ namespace EvaluationServices.BusinessLayer.UseCases
             this.questionRepository = questionRepository;
             this.userService = userService;
         }
+
+        public FormTO GetForm(int sessionID, int FormModelID)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
