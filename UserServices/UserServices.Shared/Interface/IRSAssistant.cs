@@ -5,12 +5,12 @@ using System.IO;
 
 namespace UserServices.Shared.Interface
 {
-    internal interface IAssistant
+    internal interface IRSAssistant
     {
         bool CreateUser();
 
         void DeleteUser();
 
-        //void CreateFromExcel(FileStream excelFile);
+        void CreateFromExcel(FileStream excelFile);
     }
 }

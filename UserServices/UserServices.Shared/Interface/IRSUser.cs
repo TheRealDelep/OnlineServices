@@ -4,10 +4,12 @@ using System.Text;
 
 namespace UserServices.Shared.Interface
 {
-    internal interface IUser
+    internal interface IRSUser
     {
+        int GetID();
+
         bool Login();
 
-        bool Logout();
+        void Logout();
     }
 }
