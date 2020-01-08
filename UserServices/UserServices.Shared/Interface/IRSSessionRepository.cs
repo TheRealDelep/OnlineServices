@@ -6,7 +6,7 @@ using OnlineServices.Shared.DataAccessHelpers;
 
 namespace UserServices.Shared.Interface
 {
-    internal interface ISessionRepository : OnlineServices.Shared.DataAccessHelpers.IRepository<SessionTO, int>
+    internal interface IRSSessionRepository : OnlineServices.Shared.DataAccessHelpers.IRepository<SessionTO, int>
     {
         IEnumerable<UserTO> GetStudents(SessionTO session);
 

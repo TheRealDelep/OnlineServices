@@ -4,7 +4,7 @@ using System.Text;
 
 namespace UserServices.Shared.Interface
 {
-    internal interface IUser
+    internal interface IRSUser
     {
         bool Login();
 
