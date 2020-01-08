@@ -6,8 +6,10 @@ namespace UserServices.Shared.Interface
 {
     internal interface IRSUser
     {
+        int GetID();
+
         bool Login();
 
-        bool Logout();
+        void Logout();
     }
 }
