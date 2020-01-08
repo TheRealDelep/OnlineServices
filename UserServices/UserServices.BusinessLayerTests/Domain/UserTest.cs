@@ -1,4 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using OnlineServices.Shared;
 using OnlineServices.Shared.Exceptions;
 using System.Net.Mail;
 using UserServices.BusinessLayer;
@@ -8,17 +9,17 @@ namespace UserServices.BusinessLayerTests
     [TestClass]
     public class UserTest
     {
-        User ass = new User { ID = 1, Name = "Assistant", IsActivated = true, Company = "Company 01", Role = Shared.Role.Assistant, Email = "Assistant@gmail.com" };
-        User att = new User { ID = 2, Name = "Attendee", IsActivated = true, Company = "Company 02", Role = Shared.Role.Attendee, Email = "Attendee@gmail.com" };
-        User tea = new User { ID = 3, Name = "Teacher", IsActivated = true, Company = "Company 03", Role = Shared.Role.Teacher, Email = "Teacher@gmail.com" };
+        User ass = new User { ID = 1, Name = "Assistant", IsActivated = true, Company = "Company 01", Role = UserRole.Assistant, Email = "Assistant@gmail.com" };
+        User att = new User { ID = 2, Name = "Attendee", IsActivated = true, Company = "Company 02", Role = UserRole.Attendee, Email = "Attendee@gmail.com" };
+        User tea = new User { ID = 3, Name = "Teacher", IsActivated = true, Company = "Company 03", Role = UserRole.Teacher, Email = "Teacher@gmail.com" };
         
 
         [TestMethod()]
         public void Role_Validation()
         {
-            Assert.AreEqual(Shared.Role.Assistant, ass.Role);
-            Assert.AreEqual(Shared.Role.Attendee, att.Role);
-            Assert.AreEqual(Shared.Role.Teacher, tea.Role);
+            Assert.AreEqual(UserRole.Assistant, ass.Role);
+            Assert.AreEqual(UserRole.Attendee, att.Role);
+            Assert.AreEqual(UserRole.Teacher, tea.Role);
         }
 
 
@@ -47,7 +48,7 @@ namespace UserServices.BusinessLayerTests
         [TestMethod]
         public void IsValid_Email()
         {
-            User noValidEmailUser = new User { ID = 0, Name = "Teacher", IsActivated = true, Company = "Company 03", Role = Shared.Role.Teacher, Email = "Teacher@gmailcom" };
+            User noValidEmailUser = new User { ID = 0, Name = "Teacher", IsActivated = true, Company = "Company 03", Role = UserRole.Teacher, Email = "Teacher@gmailcom" };
 
 
             Assert.IsTrue(ass.ValidateEmail(ass.Email));

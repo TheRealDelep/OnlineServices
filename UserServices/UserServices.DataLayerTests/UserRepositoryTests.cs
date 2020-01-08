@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UserServices.DataLayerTests
@@ -6,8 +7,9 @@ namespace UserServices.DataLayerTests
     public class UserRepositoryTest
     {
         [TestMethod()]
-        public void TestMethod1()
+        public void UserRepositoryInsertInDB_WhenValid()
         {
+         //   var options = new DbContextOptionsBuilder<RegistrationServicesContext>();
         }
     }
 }
