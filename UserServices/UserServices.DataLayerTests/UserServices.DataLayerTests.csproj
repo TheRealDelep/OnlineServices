@@ -21,4 +21,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\UserServices.DataLayer\UserServices.DataLayer.csproj" />
+  </ItemGroup>
+
 </Project>
