@@ -10,6 +10,7 @@ namespace UserServices.DataLayer.Extensions
     {
         public static UserTO ToTransferObject(this UserEF userEF)
         {
+            throw new NotImplementedException();
         }
 
         //public static UserEF ToEF(this UserTO userTO)
